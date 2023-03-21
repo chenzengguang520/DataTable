@@ -1,12 +1,16 @@
 ﻿#pragma once
 
-#include <QObject>
+#include <QMainWindow>
+#include "ui_DelStudent.h"
 
-class DelStudent  : public QObject
+class DelStudent : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-	DelStudent(QObject *parent);
+	DelStudent(QWidget *parent = nullptr);
 	~DelStudent();
+
+private:
+	Ui::DelStudentClass ui;
 };

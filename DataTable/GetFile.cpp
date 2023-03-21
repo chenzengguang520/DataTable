@@ -55,6 +55,20 @@ void GetFile::test1()
 	out << "Hello, world!";
 }
 
+void GetFile::test2()
+{
+	QString fileName = "./table/example.txt";
+	QFile file(fileName);
+
+	if (file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
+	{
+		QTextStream stream(&file);
+		stream << "Hello World!\n";
+		stream << "This is an example file!!!!.\n";
+		file.close();
+	}
+}
+
 void GetFile::addStudent(Student& s)
 {
 	// 文件路径
@@ -120,4 +134,22 @@ QVector<Student>& GetFile::getStudents()
 
 	//返回存储学生信息的动态数组
 	return this->s;
+}
+
+void GetFile::writeFile(QVector<Student> s)
+{
+	QString fileName = "./table/test.txt";
+	QFile file(fileName);
+
+	if (file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
+	{
+		QTextStream stream(&file);
+
+		//遍历写入数据
+		for (auto it = s.begin(); it != s.end(); it++)
+		{
+			stream << it->getSno() << " " << it->getName() << " " << it->getSex() << " " << it->getData() << " " << it->getSdept() << "\n";
+		}
+		file.close();
+	}
 }

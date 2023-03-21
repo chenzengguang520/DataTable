@@ -3,6 +3,9 @@
 #include "DataTable.h"
 #include "GetFile.h"
 #include "AddStudent.h"
+#include "FindStudent.h"
+#include "DelStudent.h"
+#include "ModifyStudent.h"
 
 MainWidgets::MainWidgets(QWidget *parent)
 	: QMainWindow(parent)
@@ -28,6 +31,29 @@ MainWidgets::MainWidgets(QWidget *parent)
 
 	});
 
+	//建立查找数据和界面之间的联系
+	connect(ui.findBtn, &QPushButton::clicked, this, [=]() {
+
+		FindStudent* findWidget = new FindStudent();
+		findWidget->show();
+
+	});
+
+	//建立删除数据和界面之间的联系
+	connect(ui.delBtn, &QPushButton::clicked, this, [=]() {
+
+		DelStudent* delWidget = new DelStudent();
+		delWidget->show();
+
+	});
+
+	//建立修改数据和界面的联系
+	connect(ui.modBtn, &QPushButton::clicked, this, [=]() {
+
+		ModifyStudent* modifyWidget = new ModifyStudent();
+		modifyWidget->show();
+		
+	});
 }
 
 MainWidgets::~MainWidgets()

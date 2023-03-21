@@ -55,16 +55,6 @@ DataTable::DataTable(QWidget *parent)
 		myTable->setItem(num++, 4, new QTableWidgetItem(m_s.getSdept()));
 		qDebug() << m_s.getName();
 	}
-
-	//QStringList labels;
-	//labels << QString::fromLocal8Bit("学号") << QString::fromLocal8Bit("姓名")
-	//	<< QString::fromLocal8Bit("性别") << QString::fromLocal8Bit("出生日期")
-	//	<< QString::fromLocal8Bit("所在系");
-
-	////设置行与列
-	//ui.tableWidget->setColumnCount(5);
-	//ui.tableWidget->setRowCount(1);
-	//ui.tableWidget->setHorizontalHeaderLabels(labels);
 	
 }
 

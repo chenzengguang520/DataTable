@@ -55,7 +55,13 @@
     <ClCompile Include="AddStudent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FindStudent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="DelStudent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModifyStudent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -75,7 +81,13 @@
     <QtMoc Include="AddStudent.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FindStudent.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="DelStudent.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ModifyStudent.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -84,6 +96,15 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="AddStudent.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="FindStudent.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="DelStudent.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ModifyStudent.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

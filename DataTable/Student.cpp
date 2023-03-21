@@ -124,3 +124,8 @@ Student& Student::operator=(const Student& other)
 	}
 	return *this;
 }
+
+void Student::printInformation()
+{
+	qDebug() << this->sno << " " << this->name << " " << this->sex << " " << this->data << " " << this->sdept;
+}

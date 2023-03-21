@@ -56,4 +56,7 @@ public:
 
 	//重载等号
 	Student& operator=(const Student& other);
+
+	//输出信息
+	void printInformation();
 };
