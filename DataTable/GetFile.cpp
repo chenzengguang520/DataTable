@@ -153,3 +153,44 @@ void GetFile::writeFile(QVector<Student> s)
 		file.close();
 	}
 }
+
+QMap<QString, QString>& GetFile::getInformation()
+{
+	QString user;
+	QString passwd;
+
+	// 打开文件
+	QFile file("./table/user.txt");
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+	{
+		qDebug() << "无法打开文件！";
+		return this->m;
+
+	}
+
+	// 创建文本流
+	QTextStream stream(&file);
+	//stream.setCodec("UTF-8"); // 设置编码方式
+
+
+	// 逐行读取文件内容并输出到控制台
+	QString line;
+
+	while (!stream.atEnd())
+	{
+		line = stream.readLine();
+		user = line.split(" ")[0];
+		passwd = line.split(" ")[1];
+
+		qDebug() << user << " " << passwd;
+
+		//存储变量
+		this->m[user] = passwd;
+
+	}
+
+	// 关闭文件
+	file.close();
+	return this->m;
+
+}

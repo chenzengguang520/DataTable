@@ -26,8 +26,8 @@
     <widget class="QPushButton" name="showBtn">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>40</y>
+       <x>50</x>
+       <y>50</y>
        <width>75</width>
        <height>24</height>
       </rect>
@@ -39,8 +39,8 @@
     <widget class="QPushButton" name="addBtn">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>90</y>
+       <x>160</x>
+       <y>50</y>
        <width>75</width>
        <height>24</height>
       </rect>
@@ -52,8 +52,8 @@
     <widget class="QPushButton" name="delBtn">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>140</y>
+       <x>50</x>
+       <y>90</y>
        <width>75</width>
        <height>24</height>
       </rect>
@@ -65,8 +65,8 @@
     <widget class="QPushButton" name="modBtn">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>190</y>
+       <x>160</x>
+       <y>90</y>
        <width>75</width>
        <height>24</height>
       </rect>
@@ -78,8 +78,8 @@
     <widget class="QPushButton" name="findBtn">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>240</y>
+       <x>50</x>
+       <y>130</y>
        <width>75</width>
        <height>24</height>
       </rect>

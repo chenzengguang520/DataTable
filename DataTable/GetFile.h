@@ -5,13 +5,18 @@
 #include <QTextStream>
 #include "Student.h"
 #include <QVector>
+#include <QMap>
 
 class GetFile  : public QObject
 {
 	Q_OBJECT
 
 private:
+	//存取学生信息的动态数组
 	QVector<Student> s;
+	
+	//存取用户账号的数组和密码的
+	QMap<QString, QString>m;
 
 public:
 	GetFile(QObject *parent);
@@ -34,4 +39,7 @@ public:
 
 	//对原有文件内容进行覆盖
 	void writeFile(QVector<Student> s);
+
+	//获取登录用户的账号和密码信息
+	QMap<QString, QString>& getInformation();
 };

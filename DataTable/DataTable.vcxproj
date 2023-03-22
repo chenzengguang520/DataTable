@@ -87,8 +87,10 @@
     <ClCompile Include="DelStudent.cpp" />
     <ClCompile Include="FindStudent.cpp" />
     <ClCompile Include="GetFile.cpp" />
+    <ClCompile Include="LogWidget.cpp" />
     <ClCompile Include="MainWidgets.cpp" />
     <ClCompile Include="ModifyStudent.cpp" />
+    <ClCompile Include="RegWidget.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Students.cpp" />
     <QtRcc Include="DataTable.qrc" />
@@ -99,8 +101,10 @@
     <ClCompile Include="main.cpp" />
     <QtUic Include="DelStudent.ui" />
     <QtUic Include="FindStudent.ui" />
+    <QtUic Include="LogWidget.ui" />
     <QtUic Include="MainWidgets.ui" />
     <QtUic Include="ModifyStudent.ui" />
+    <QtUic Include="RegWidget.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Student.h" />
@@ -125,6 +129,12 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ModifyStudent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="LogWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="RegWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
