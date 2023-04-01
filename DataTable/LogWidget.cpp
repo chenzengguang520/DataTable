@@ -55,8 +55,8 @@ LogWidget::LogWidget(QWidget *parent)
 		else
 		{
 			MainWidgets* widget = new MainWidgets(this);
-			this->close();
 			widget->show();
+			this->hide();
 		}
 	});
 
@@ -64,6 +64,7 @@ LogWidget::LogWidget(QWidget *parent)
 	connect(ui.regBtn, &QPushButton::clicked, this, [=]() {
 
 		RegWidget* reg = new RegWidget();
+		this->hide();
 		reg->show();
 	
 	});

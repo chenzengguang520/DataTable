@@ -17,9 +17,6 @@ MainWidgets::MainWidgets(QWidget *parent)
 
 		DataTable* table = new DataTable();
 		table->show();
-		//GetFile* file = new GetFile(parent);
-		//file->test();
-		//file->test1();
 		
 	});
 

@@ -194,3 +194,22 @@ QMap<QString, QString>& GetFile::getInformation()
 	return this->m;
 
 }
+
+void GetFile::WriteUser(QMap<QString, QString> m)
+{
+// 文件路径
+	QString filePath = "./table/User.txt";
+
+	// 打开文件，如果文件不存在则创建它
+	QFile file(filePath);
+	if (!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+		return;
+
+	// 创建一个 QTextStream，用于向文件写入数据
+	QTextStream out(&file);
+
+	// 写入数据到文件
+	out << m.keys()[0] << " " << m.values()[0] << "\n";
+
+	file.close();
+}

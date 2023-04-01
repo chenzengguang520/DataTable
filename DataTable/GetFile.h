@@ -15,7 +15,7 @@ private:
 	//存取学生信息的动态数组
 	QVector<Student> s;
 	
-	//存取用户账号的数组和密码的
+	//存取用户账号的数组和密码的 
 	QMap<QString, QString>m;
 
 public:
@@ -42,4 +42,7 @@ public:
 
 	//获取登录用户的账号和密码信息
 	QMap<QString, QString>& getInformation();
+
+	//存储用户的注册信息
+	void WriteUser(QMap<QString, QString>);
 };

@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 #include "ui_RegWidget.h"
+#include "GetFile.h"
 
 class RegWidget : public QMainWindow
 {
