@@ -87,6 +87,7 @@
     <ClCompile Include="DelStudent.cpp" />
     <ClCompile Include="FindStudent.cpp" />
     <ClCompile Include="GetFile.cpp" />
+    <ClCompile Include="IntegrityConstraint.cpp" />
     <ClCompile Include="LogWidget.cpp" />
     <ClCompile Include="MainWidgets.cpp" />
     <ClCompile Include="ModifyStudent.cpp" />
@@ -135,6 +136,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="RegWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="IntegrityConstraint.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
