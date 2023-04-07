@@ -213,3 +213,100 @@ void GetFile::WriteUser(QMap<QString, QString> m)
 
 	file.close();
 }
+
+QVector<QString>& GetFile::getData(QString major)
+{
+	this->getList();
+
+	//确定一共有inf中一共存取了多少变量
+	int len = this->inf.size();
+
+	//确定第几个是需要查找的主键信息
+	int k = 0;
+	qDebug() << "len = " << len;
+	for (auto it = this->inf.begin(); it != this->inf.end(); it++) 
+	{
+		if (major == *it)
+		{
+			break;
+		}
+		++k;
+		qDebug() << "k = " << k;
+		if (k == len - 1)
+		{
+			break;
+		}
+	}
+
+	QString l;
+	// 打开文件
+	QFile file("./table/test.txt");
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+	{
+		qDebug() << "无法打开文件！";
+		return this->inf;
+
+	}
+
+	// 创建文本流
+	QTextStream stream(&file);
+	//stream.setCodec("UTF-8"); // 设置编码方式
+
+
+	// 逐行读取文件内容并输出到控制台
+	QString line;
+
+	while (!stream.atEnd())
+	{
+		line = stream.readLine();
+		l = line.split(" ")[k];
+
+		qDebug() << l;
+
+		this->major.append(l);
+
+	}
+
+	return this->major;
+
+	// 关闭文件
+	file.close();
+	
+}
+
+QVector<QString>& GetFile::getList()
+{
+	QString l;
+	// 打开文件
+	QFile file("./table/table.txt");
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+	{
+		qDebug() << "无法打开文件！";
+		return this->inf;
+
+	}
+
+	// 创建文本流
+	QTextStream stream(&file);
+	//stream.setCodec("UTF-8"); // 设置编码方式
+
+
+	// 逐行读取文件内容并输出到控制台
+	QString line;
+
+	while (!stream.atEnd())
+	{
+		line = stream.readLine();
+		l = line;
+
+		qDebug() << l;
+
+		this->inf.append(l);
+
+	}
+
+	return this->inf;
+
+	// 关闭文件
+	file.close();
+}

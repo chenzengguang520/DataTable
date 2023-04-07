@@ -4,12 +4,14 @@
 #include <QMessageBox>
 #include "MainWidgets.h"
 #include "RegWidget.h"
+#include "IntegrityConstraint.h"
 
 LogWidget::LogWidget(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
 
+	qDebug() << "成功进入！";
 	//建立登录按钮和主界面的联系
 	connect(ui.logBtn, &QPushButton::clicked, this, [=]() {
 
@@ -18,9 +20,11 @@ LogWidget::LogWidget(QWidget *parent)
 
 		//获取所有的用户账号密码信息
 		//建立一个map存储这些信息
+		qDebug() << "开始获取信息";
 		QMap<QString, QString>m;
-		GetFile* file = new GetFile(parent);
+		GetFile* file = new GetFile(this);
 		m = file->getInformation();
+		qDebug() << "获取信息完成";
 
 		//定义一个变量用来表示该用户名是否存在
 		//flag1用来判断用户名是否存在，flag2用来判断密码是否正确
@@ -55,6 +59,9 @@ LogWidget::LogWidget(QWidget *parent)
 		else
 		{
 			MainWidgets* widget = new MainWidgets(this);
+			IntegrityConstraint* inter = new IntegrityConstraint(this);
+			QString name = "陈增光";
+			inter->nameStandard(name);
 			widget->show();
 			this->hide();
 		}

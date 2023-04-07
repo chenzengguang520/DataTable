@@ -1,0 +1,5 @@
+sno
+name
+sex
+date
+sdept

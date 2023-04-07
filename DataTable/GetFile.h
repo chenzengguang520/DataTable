@@ -12,6 +12,12 @@ class GetFile  : public QObject
 	Q_OBJECT
 
 private:
+	//存取定义的主键信息
+	QVector<QString> major;
+
+	//存取表头的信息
+	QVector<QString> inf;
+
 	//存取学生信息的动态数组
 	QVector<Student> s;
 	
@@ -45,4 +51,10 @@ public:
 
 	//存储用户的注册信息
 	void WriteUser(QMap<QString, QString>);
+
+	//获取某一列的数据信息默认是sno
+	QVector<QString>& getData(QString major = "sno");
+
+	//获取表头信息
+	QVector<QString>& getList();
 };

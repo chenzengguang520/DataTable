@@ -6,6 +6,7 @@
 #include "FindStudent.h"
 #include "DelStudent.h"
 #include "ModifyStudent.h"
+#include "IntegrityConstraint.h"
 
 MainWidgets::MainWidgets(QWidget *parent)
 	: QMainWindow(parent)
