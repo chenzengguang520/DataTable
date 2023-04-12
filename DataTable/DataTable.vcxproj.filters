@@ -73,6 +73,12 @@
     <ClCompile Include="IntegrityConstraint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CodeWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CodeAnalyse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Student.h">
@@ -108,6 +114,12 @@
     <QtMoc Include="IntegrityConstraint.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="CodeWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CodeAnalyse.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MainWidgets.ui">
@@ -129,6 +141,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="RegWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="CodeWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

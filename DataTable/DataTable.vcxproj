@@ -84,6 +84,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddStudent.cpp" />
+    <ClCompile Include="CodeAnalyse.cpp" />
+    <ClCompile Include="CodeWidget.cpp" />
     <ClCompile Include="DelStudent.cpp" />
     <ClCompile Include="FindStudent.cpp" />
     <ClCompile Include="GetFile.cpp" />
@@ -96,6 +98,7 @@
     <ClCompile Include="Students.cpp" />
     <QtRcc Include="DataTable.qrc" />
     <QtUic Include="AddStudent.ui" />
+    <QtUic Include="CodeWidget.ui" />
     <QtUic Include="DataTable.ui" />
     <QtMoc Include="DataTable.h" />
     <ClCompile Include="DataTable.cpp" />
@@ -139,6 +142,12 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="IntegrityConstraint.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="CodeWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="CodeAnalyse.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

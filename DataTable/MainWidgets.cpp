@@ -7,11 +7,24 @@
 #include "DelStudent.h"
 #include "ModifyStudent.h"
 #include "IntegrityConstraint.h"
+#include <QAction.h>
+#include "CodeWidget.h"
+#include "CodeAnalyse.h"
 
 MainWidgets::MainWidgets(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+	
+	//建立新建和code界面之间的联系
+	connect(ui.newCode, &QAction::triggered, this, [=]() {
+
+		CodeWidget* widget = new CodeWidget(this);
+		widget->show();
+		CodeAnalyse* ana = new CodeAnalyse();
+		qDebug()<<ana->containsPunctuation("hello,world");
+
+	});
 
 	//把显示数据的按钮和界面之间建立联系
 	connect(ui.showBtn, &QPushButton::clicked, this, [=]() {

@@ -58,7 +58,7 @@ LogWidget::LogWidget(QWidget *parent)
 		}
 		else
 		{
-			MainWidgets* widget = new MainWidgets(this);
+			MainWidgets* widget = new MainWidgets();
 			IntegrityConstraint* inter = new IntegrityConstraint(this);
 			QString name = "陈增光";
 			inter->nameStandard(name);

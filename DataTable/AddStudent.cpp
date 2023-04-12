@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "GetFile.h"
+#include "IntegrityConstraint.h"
 
 AddStudent::AddStudent(QWidget *parent)
 	: QMainWindow(parent)
@@ -13,6 +14,10 @@ AddStudent::AddStudent(QWidget *parent)
 	
 	ui.snoLine->setPlaceholderText("学号（12位数字）");
 	ui.nameLine->setPlaceholderText("姓名");
+
+	//创建完整性约束类
+	IntegrityConstraint* inter = new IntegrityConstraint(this);
+
 
 	Student* s = new Student();
 	connect(ui.submitBtn, &QPushButton::clicked, this, [=]() {
@@ -30,7 +35,7 @@ AddStudent::AddStudent(QWidget *parent)
 			box->setText("学号不对!请重新输入！");
 			box->show();
 		}
-		else
+		else if (inter->dataIsOnly(sno) && inter-> nameStandard(name))
 		{
 			s->setSno(sno);
 			s->setName(name);
@@ -44,6 +49,18 @@ AddStudent::AddStudent(QWidget *parent)
 			ui.nameLine->clear();
 			GetFile* f = new GetFile(parent);
 			f->addStudent(*s);
+		}
+		else if(!inter->dataIsOnly(sno))
+		{
+			QMessageBox* box = new QMessageBox();
+			box->setText("此学号已经存在！");
+			box->show();
+		}
+		else
+		{
+			QMessageBox* box = new QMessageBox();
+			box->setText("姓名不符合规范！");
+			box->show();
 		}
 	});
 }
