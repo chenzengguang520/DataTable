@@ -8,8 +8,7 @@ CodeAnalyse::CodeAnalyse(QObject *parent)
 {}
 
 CodeAnalyse::CodeAnalyse()
-{
-}
+{}
 
 void CodeAnalyse::hintError(QString error)
 {
@@ -22,6 +21,7 @@ void CodeAnalyse::hintError(QString error)
 void CodeAnalyse::analyseCode(QString code)
 {
 	qDebug() << "调用了词法分析";
+	//确保每一个语句是以';'结尾
 	int length = code.size();
 	qDebug() << "length = " << length;
 	int len = code.split(" ").count();
@@ -34,11 +34,9 @@ void CodeAnalyse::analyseCode(QString code)
 	QStringList str = code.split(" ");
 	qDebug() << str;
 	GetFile* file = new GetFile();
-	
 	// create命令
 	// 确定动作
 	int order = getAction("Action", str[0]);
-	
 	//create命令 order = 1
 	if (order == 1)
 	{
@@ -91,6 +89,18 @@ void CodeAnalyse::analyseCode(QString code)
 				{
 					if (getVairable(var[i].split(" ")[0]))
 					{
+						qDebug() << "var = " << var[i];
+						if (var[i].split(" ").count() % 2 != 0)
+						{
+							hintError("Missing variable name");
+							return;
+						}
+						if (var[i].split(" ")[1] == "")
+						{
+							hintError("Missing variable name");
+							return;
+						}
+						qDebug() << "var name = " << var[i].split(" ")[1];
 						m[var[i].split(" ")[1]] = var[i].split(" ")[0];
 					}
 					else
@@ -106,7 +116,18 @@ void CodeAnalyse::analyseCode(QString code)
 			}
 		}
 	}
-	
+	// insert命令
+	if (order == 2)
+	{
+		int command = getAction("Command", str[1]);
+		//代表的是insert into xxx命令
+		if (command == 2)
+		{
+			//获取这个表格含有哪些变量名称
+
+		}
+
+	}
 }
 
 int CodeAnalyse::getAction(QString command,QString code)
