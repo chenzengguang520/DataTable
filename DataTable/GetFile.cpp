@@ -2,13 +2,60 @@
 #include <qdebug.h>
 #include <QFile>
 #include <QTextStream>
+#include <QMessageBox>
+#include <QDir>
 
 GetFile::GetFile(QObject *parent)
 	: QObject(parent)
 {}
 
+GetFile::GetFile()
+{
+}
+
 GetFile::~GetFile()
 {}
+
+bool GetFile::checkTable(QString name)
+{
+	QDir directory("./table/"); //替换为目标目录的路径
+	QStringList files = directory.entryList(QDir::Files);
+	QMap<QString, int>m;
+	foreach(QString filename, files) {
+		m[filename] = 1;
+		qDebug() << filename;
+	}
+	if (m[name] == 1)
+	{
+		return false;
+	}
+	return true;
+}
+
+void GetFile::createTable(QString name, QMap<QString, QString> m)
+{
+	//首先先判断此表格是否已经创建过
+	if (!checkTable(name))
+	{
+		QMessageBox* box = new QMessageBox();
+		box->setText("此表格已经创过不能重复创建！");
+		box->show();
+		return;
+	}
+	QString path = "./table/" + name;
+	// 打开文件，如果文件不存在则创建它
+	QFile file(path);
+	if (!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+		return;
+	// 创建一个 QTextStream，用于向文件写入数据
+	// 写入数据到文件
+	QTextStream out(&file);
+	for (auto it = m.begin();it != m.end();it++)
+	{
+		out << it.value() << " " << it.key() << "\n";
+	}
+	qDebug() << "表格创建成功";
+}
 
 void GetFile::test()
 {
@@ -298,11 +345,43 @@ QVector<QString>& GetFile::getList()
 	{
 		line = stream.readLine();
 		l = line;
-
 		qDebug() << l;
-
 		this->inf.append(l);
+	}
 
+	return this->inf;
+
+	// 关闭文件
+	file.close();
+}
+
+QVector<QString>& GetFile::getList(QString name)
+{
+	QString l;
+	// 打开文件
+	QString path = "./table/" + name;
+	QFile file(path);
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+	{
+		qDebug() << "无法打开文件！";
+		return this->inf;
+
+	}
+
+	// 创建文本流
+	QTextStream stream(&file);
+	//stream.setCodec("UTF-8"); // 设置编码方式
+
+
+	// 逐行读取文件内容并输出到控制台
+	QString line;
+
+	while (!stream.atEnd())
+	{
+		line = stream.readLine();
+		l = line;
+		qDebug() << l;
+		this->inf.append(l);
 	}
 
 	return this->inf;

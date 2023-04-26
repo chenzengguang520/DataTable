@@ -3,6 +3,7 @@
 #include <QAction>
 #include <QMenu>
 #include <QTextEdit>
+#include "CodeAnalyse.h"
 
 CodeWidget::CodeWidget(QWidget *parent)
 	: QMainWindow(parent)
@@ -14,7 +15,10 @@ CodeWidget::CodeWidget(QWidget *parent)
 	connect(ui.actionrun, &QAction::triggered, this, [=]() {
 
 		QString text = ui.textEdit->toPlainText();
-		qDebug() << text;
+		CodeAnalyse* code = new CodeAnalyse();
+		qDebug() << "点击了运行按钮";
+		code->analyseCode(text);
+
 
 	});
 }

@@ -21,8 +21,6 @@ MainWidgets::MainWidgets(QWidget *parent)
 
 		CodeWidget* widget = new CodeWidget(this);
 		widget->show();
-		CodeAnalyse* ana = new CodeAnalyse();
-		qDebug()<<ana->containsPunctuation("hello,world");
 
 	});
 

@@ -26,7 +26,14 @@ private:
 
 public:
 	GetFile(QObject *parent);
+	GetFile();
 	~GetFile();
+
+	//检查某一表格是否存在
+	bool checkTable(QString name);
+
+	//创建表格命令，表格名称
+	void createTable(QString name,QMap<QString,QString> m);
 
 	//读文件测试
 	void test();
@@ -57,4 +64,7 @@ public:
 
 	//获取表头信息
 	QVector<QString>& getList();
+
+	//获取预存储信息
+	QVector<QString>& getList(QString name);
 };
