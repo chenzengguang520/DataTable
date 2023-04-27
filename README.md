@@ -61,4 +61,4 @@ D:\Mycpp_code\DataTable
 |     |   ├─test.txt
 |     |   └User.txt
 
-函数依赖0
+create table xxx(variable name1,variable name2);

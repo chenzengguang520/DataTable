@@ -123,10 +123,32 @@ void CodeAnalyse::analyseCode(QString code)
 		//代表的是insert into xxx命令
 		if (command == 2)
 		{
-			//获取这个表格含有哪些变量名称
-
+			//首先检查要插入进的表格名称是否存在
+			QString tableName = str[2].split("(")[0];
+			GetFile* file = new GetFile();
+			//存在返回的是false
+			qDebug() << "tablename = " << tableName;
+			bool flag = file->checkTable(tableName);
+			if (flag)
+			{
+				QString error = tableName + " not exist";
+				hintError(error);
+				return;
+			}
+			//获取这个表格中有哪些可以插入的变量名
+			QVector<QString>v = file->getList(tableName);
+			//创建一个QMap去存储表格的数据和数据类型
+			QMap<QString, QString>m;
+			for (auto it = v.begin();it != v.end();it++)
+			{
+				QStringList var = (*it).split(" ");
+				m[var[1]] = var[0];
+			}
+			for (auto it = m.begin(); it != m.end(); it++)
+			{
+				qDebug() << it.key() << " = " << it.value();
+			}
 		}
-
 	}
 }
 

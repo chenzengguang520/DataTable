@@ -15,7 +15,7 @@ GetFile::GetFile()
 
 GetFile::~GetFile()
 {}
-
+//检查一个表格是否存在，如果存在则返回false
 bool GetFile::checkTable(QString name)
 {
 	QDir directory("./table/"); //替换为目标目录的路径
@@ -367,12 +367,9 @@ QVector<QString>& GetFile::getList(QString name)
 		return this->inf;
 
 	}
-
 	// 创建文本流
 	QTextStream stream(&file);
 	//stream.setCodec("UTF-8"); // 设置编码方式
-
-
 	// 逐行读取文件内容并输出到控制台
 	QString line;
 
@@ -383,9 +380,7 @@ QVector<QString>& GetFile::getList(QString name)
 		qDebug() << l;
 		this->inf.append(l);
 	}
-
 	return this->inf;
-
 	// 关闭文件
 	file.close();
 }
