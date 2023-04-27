@@ -139,15 +139,15 @@ void CodeAnalyse::analyseCode(QString code)
 			QVector<QString>v = file->getList(tableName);
 			//创建一个QMap去存储表格的数据和数据类型
 			QMap<QString, QString>m;
+			//变量存储变量名及其类型
 			for (auto it = v.begin();it != v.end();it++)
 			{
 				QStringList var = (*it).split(" ");
 				m[var[1]] = var[0];
 			}
-			for (auto it = m.begin(); it != m.end(); it++)
-			{
-				qDebug() << it.key() << " = " << it.value();
-			}
+			//获取用户输入要存储的变量名称
+			//insrt into user(id,name,age);//获取的是id,name,age
+
 		}
 	}
 }
